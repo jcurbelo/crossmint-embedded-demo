@@ -24,14 +24,14 @@ export const generateCheckoutCode = ({
         }}`
         : "";
 
-    const recipientConfig = hideInputs.destination && recipient.walletAddress
+    const recipientConfig = !recipient.email && recipient.walletAddress
         ? `\n        recipient={{
           walletAddress: "${recipient.walletAddress}"
         }}`
         : "";
 
     const emailConfig =
-        hideInputs.email && recipient.email
+        !recipient.walletAddress && recipient.email
             ? `\n        payment={{
           receiptEmail: "${recipient.email}"
         }}`
