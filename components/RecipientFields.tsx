@@ -27,8 +27,8 @@ export const RecipientFields = ({
           <Label htmlFor="email-input">Email Input</Label>
           <Switch
             id="hide-email"
-            checked={hideInputs.email}
-            onCheckedChange={(checked) => onHideInputToggle("email", checked)}
+            checked={!hideInputs.email}
+            onCheckedChange={(checked) => onHideInputToggle("email", !checked)}
           />
         </div>
         <Input
@@ -50,9 +50,9 @@ export const RecipientFields = ({
           <Label htmlFor="wallet-input">Wallet Input</Label>
           <Switch
             id="hide-destination"
-            checked={hideInputs.destination}
+            checked={!hideInputs.destination}
             onCheckedChange={(checked) =>
-              onHideInputToggle("destination", checked)
+              onHideInputToggle("destination", !checked)
             }
           />
         </div>
