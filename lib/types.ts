@@ -1,18 +1,12 @@
+import { isAddress } from "viem";
 import { z } from "zod";
 
-export const isValidEthereumAddress = (address: string): boolean => {
-    try {
-        return /^0x[a-fA-F0-9]{40}$/.test(address);
-    } catch {
-        return false;
-    }
-}
 
 export const recipientSchema = z.object({
     email: z.string().email().optional(),
     walletAddress: z
         .string()
-        .refine((val) => isValidEthereumAddress(val), {
+        .refine((val) => isAddress(val), {
             message: "Invalid Ethereum address",
         })
         .optional(),
