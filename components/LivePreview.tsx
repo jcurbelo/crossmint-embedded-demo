@@ -15,7 +15,7 @@ interface LivePreviewProps {
 const CrossmintEmbeddedCheckout = dynamic(
   () =>
     import("@crossmint/client-sdk-react-ui").then(
-      (mod) => mod.CrossmintEmbeddedCheckout_Alpha
+      (mod) => mod.CrossmintEmbeddedCheckout
     ),
   {
     ssr: false,
